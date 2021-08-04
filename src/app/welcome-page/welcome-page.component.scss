@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Monoton&family=Playfair+Display&display=swap');
+
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vH;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+}
+
+.main-page > h1 {
+    color: white;
+    font-family: 'Anton', sans-serif;
+    font-size: 66px;
+    margin: 200px;
+}
+
+.main-page > h1 > span {
+    position: relative;
+    left: 20px;
+    color: black;
+    font-size: 89px;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.button_welcome_page > button {
+    background-color: black;
+    color: white;
+    min-width: 110px;
+    min-height: 110px;
+    border-radius: 50%;
+    font-size: larger;
+    border: solid 1px white;
+}
+    
+.animated {
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+  }
+
+@-webkit-keyframes swing {
+    15% {
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+    }
+    65% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
+    80% {
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+@keyframes swing {
+    15% {
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+    }
+    65% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
+    80% {
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.button_welcome_page > button:hover {
+    -webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+  }
+  .pulse {
+    animation-name: pulse;
+    animation-duration: 1s;
+  }

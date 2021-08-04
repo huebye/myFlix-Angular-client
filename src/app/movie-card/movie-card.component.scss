@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Monoton&family=Playfair+Display&display=swap');
+
+.movie_view {
+  display: block;
+  width: 100vW;
+  height: 100vH;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  position: sticky;
+  overflow-x: auto;
+}
+
+.nav {
+  display: flex;
+  width: 100%;
+  position: fixed;
+}
+
+.nav > h1 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 50px;
+    padding: 35px;
+}
+
+.nav > a > img {
+  position: absolute;
+  top: 20px;
+  right: 220px;
+  width: 80px;
+  height: 80px;
+}
+
+mat-card {
+    margin-top: 160px;
+    border: solid 2px black;
+    min-height: 600px;
+    max-height: 600px;
+    margin-right: 6px;
+    transition: 1s;
+    opacity: 0.9;
+}
+
+mat-card:hover {
+    box-shadow: 14px -7px 50px -17px rgba(0,0,0,0.75);
+-webkit-box-shadow: 14px -7px 50px -17px rgba(0,0,0,0.75);
+-moz-box-shadow: 14px -7px 50px -17px rgba(0,0,0,0.75);
+transform: scale(1.01);
+transition: 1s;
+}
+
+mat-card > img {
+    width: 400px;
+    height: 450px;
+}
+  
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+  }
+  .pulse {
+    animation-name: pulse;
+    animation-duration: 1s;
+  }
+
+  .animated {
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+  }

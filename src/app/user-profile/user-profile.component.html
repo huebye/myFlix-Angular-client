@@ -1,0 +1,47 @@
+<div class="profile_main">
+  <div class="nav">
+    <h1>myFlix</h1>
+    </div>
+    <div class="profil">
+      <div class="profil_info">
+        <img src="../../assets/profile.png" alt="link to profile">
+        <ul>
+          <li>Username: <span>{{user.Name}}</span></li>
+          <li>Email:    <span>{{user.Email}}</span></li>
+          <li>Birthday: <span>{{user.Birthday.substr(0,10)}}</span></li>
+        </ul>
+        <div class="profil_button">
+          <button
+          mat-raised-button
+          style="margin-right: 10px;"
+          (click)="openUserUpdateDialog()"
+        >
+        Update Profile
+        </button>
+        <button
+      mat-raised-button
+      style="margin-right: 10px;"
+    >
+      <a class="a_button" href="/movies">Back</a>
+    </button>
+    <button
+    mat-raised-button
+    (click)="openDeleteDialog()"
+    >
+    Delete Profile
+    </button>
+  </div>
+      </div>
+      <div class="profil_staricon">
+        <img src="../../assets/star_pink.png" width="80px" height="80px" alt="list of favorite movies">
+      <div class="profil_favorite">
+        <mat-card *ngFor='let favorite of favourite' style="flex: 1 1 auto;">
+          <img src={{favorite.ImagePath}} alt= {{favorite.Title}} />
+          <button
+          (click)='removeFavorites(favorite._id)'
+          >X</button>
+      </mat-card>
+      </div>
+    </div>
+    </div>
+</div>
