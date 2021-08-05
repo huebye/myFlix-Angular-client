@@ -10,8 +10,10 @@
 
 .profil {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   font-size: 18px;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  vertical-align: middle;
 }
 
 
@@ -19,11 +21,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;  
-  width: auto;
-  height: 500px;
-  background: white;
+  width: 90%;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.5);
   border: solid 2px black;
-  opacity: 0.97;
   border-radius: 5px;
   padding: 20px;
   font-size: 30px;
@@ -32,9 +33,14 @@
 
 .profil_staricon {
   display: block;
-  width: auto;
+  width: 90%;
+  padding: 20px;
   margin: 0 auto;
   margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  min-height: 600px;
+  border: solid 2px black;
+  border-radius: 5px;
 }
 
 .profil_staricon > img {
@@ -47,12 +53,12 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   padding-top: 20px;
-  margin: 0 auto;
   flex-direction: column;
-  margin-left: 20px;
   width: 80%;
   height: auto;
   background: transparent;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 mat-card > button {
@@ -60,10 +66,12 @@ mat-card > button {
   color: white;
   border: none;
   cursor: pointer;
+  position: relative;
+  left: 45%;
 }
 
 mat-card {
-  background: transparent;
+  background: white;
   width: min-content;
   height: min-content;
 }
@@ -105,12 +113,28 @@ height: 130px;
 }
 
 .a_button {
-  display: inline-block;
-  text-decoration: none;
-  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;  
+  width: 60px;
+  height: 40px;
+  color: white;
+  background: black;
+  border: solid 1px black;
+}
+
+.back_button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   height: auto;
-  color: black;
-  background-color: white ;
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  padding-bottom: 50px;
+}
+
+.back_button > button {
+  background-color: black;
 }
 
 
@@ -173,4 +197,35 @@ height: 130px;
   animation: swing 1s ease;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
+}
+
+
+
+@media only screen and (max-width: 400px) {
+
+}
+
+@media only screen and (max-width: 1186px) {
+  .profil {
+    grid-template-columns: 1fr;
+  }
+  .profil_info {
+    align-self: center;
+    margin-bottom: 10px;
+  }
+  .back_button {
+    padding-bottom: 100px;
+  }
+}
+
+@media only screen and (max-width:1462px) and (min-width: 1186px) {
+  .profil_favorite {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+  }
+
+  .profil_staricon > img {
+    position: relative;
+  left: 43%;
+  }
 }

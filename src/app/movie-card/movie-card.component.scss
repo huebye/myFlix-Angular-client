@@ -29,12 +29,16 @@
   height: 80px;
 }
 
+#movie_card {
+  display: flex;
+  padding: 10px;
+}
+
 mat-card {
     margin-top: 160px;
     border: solid 2px black;
-    min-height: 600px;
-    max-height: 600px;
     margin-right: 6px;
+    width: max-content;
     transition: 1s;
     opacity: 0.9;
 }
@@ -67,4 +71,80 @@ mat-card > img {
     animation-duration: 2.5s;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
+  }
+
+  @media only screen and (max-width: 400px) {
+
+    .movie_view {
+      max-width: 100%;
+    }
+
+    #movie_card {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 130px;
+      justify-content: center;
+      padding: 0;
+    }
+
+    mat-card > img {
+      width: 300px;
+      height: 350px;
+  }
+
+    mat-card {
+      width: min-content;
+      margin-bottom: 2px;
+    }
+
+    .nav > a > img {
+      right: 60px;
+    }
+  }
+
+  @media only screen and (max-width: 820px) {
+    #movie_card {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 160px;
+      justify-content: center;
+      padding: 0;
+    }
+
+    mat-card {
+      width: min-content;
+      margin: 40px;
+    }
+
+    
+
+    .nav > a > img {
+      right: 60px;
+    }
+  }
+
+  @media only screen and (max-width:1100px) and (min-width: 820px) {
+    #movie_card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 160px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    mat-card > img {
+      width: 350px;
+      height: 400px;
+  }
+
+    mat-card {
+      width: min-content;
+      margin: 2px;
+      margin-bottom: 10px;
+    }
+
+
+    .nav > a > img {
+      right: 60px;
+    }
   }

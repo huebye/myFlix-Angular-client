@@ -3,8 +3,8 @@
 <h1 class="animated pulse">myFlix</h1>
 <a href="/user"><img src="../../assets/profile.png" alt="link to profile"></a>
 </div>
-<div  style="display: flex;padding: 10px;grid-template-columns: 1fr 1fr;">
-    <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
+<div id="movie_card" >
+    <mat-card *ngFor="let movie of movies;">
         <mat-card-header>
         <mat-card-title>{{movie.Title}}</mat-card-title>
             <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>

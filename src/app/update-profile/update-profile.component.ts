@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -14,7 +15,8 @@ export class UpdateProfileComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UpdateProfileComponent>,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar,
+    public router: Router) { }
 
 ngOnInit(): void {
 }
@@ -27,6 +29,7 @@ getUser(): void {
       return this.user;
     });
   }
+
 // This is the function responsible for sending the form inputs to the backend
 editUser(): void {
     this.fetchApiData.editUser(this.userDetails).subscribe((result) => {
@@ -34,6 +37,9 @@ editUser(): void {
   // Logic for a successful user registration goes here! (To be implemented)
      this.dialogRef.close(); // This will close the modal on success!
      console.log(result)
+     this.router.navigate(['/user']).then(() => {
+      window.location.reload();
+    });
      this.snackBar.open(result, 'OK', {
         duration: 2000
      });
@@ -42,7 +48,6 @@ editUser(): void {
       this.snackBar.open(result, 'OK', {
         duration: 2000
       });
-      window.location.reload();
     });
   }
 
