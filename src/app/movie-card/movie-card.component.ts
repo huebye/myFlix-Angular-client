@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DirectorDialogComponent } from '../director-dialog/director-dialog.component';
 import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
@@ -12,7 +13,7 @@ import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
 export class MovieCardComponent {
   movies: any[] = [];
   favoriteMovieIds: any[] = [];
-  constructor(public dialog: MatDialog, public fetchApiData: FetchApiDataService,public snackBar: MatSnackBar) { }
+  constructor(public dialog: MatDialog, public fetchApiData: FetchApiDataService,public snackBar: MatSnackBar, public router: Router) { }
 
 ngOnInit(): void {
   this.getMovies();
@@ -79,5 +80,9 @@ getMovies(): void {
       });
     }
     return this.favoriteMovieIds.push(id);
+  }
+
+  goToUserView(): void {
+    this.router.navigate(['/user']);
   }
 }

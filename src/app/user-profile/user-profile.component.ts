@@ -4,6 +4,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { UpdateProfileComponent } from '../update-profile/update-profile.component'
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileDeleteComponent } from '../profile-delete/profile-delete.component'
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-user-profile',
@@ -65,4 +66,8 @@ export class UserProfileComponent implements OnInit {
         });
       });
    }
+
+   backToMovies(): void {
+     this.router.navigate(['/movies'])
+   };
 }

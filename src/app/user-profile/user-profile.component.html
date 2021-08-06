@@ -4,7 +4,7 @@
     </div>
     <div class="profil">
       <div class="profil_info">
-        <img src="../../assets/profile.png" alt="link to profile">
+        <img src="assets/profile.png" alt="link to profile">
         <ul>
           <li>Username: <span>{{user.Name}}</span></li>
           <li>Email:    <span>{{user.Email}}</span></li>
@@ -27,7 +27,7 @@
   </div>
       </div>
       <div class="profil_staricon">
-        <img src="../../assets/star_pink.png" width="80px" height="80px" alt="list of favorite movies">
+        <img src="assets/star_pink.png" width="80px" height="80px" alt="list of favorite movies">
       <div class="profil_favorite">
         <mat-card *ngFor='let favorite of favourite' style="flex: 1 1 auto;">
           <img src={{favorite.ImagePath}} alt= {{favorite.Title}} />
@@ -41,9 +41,10 @@
     <div class="back_button">
       <button
       mat-raised-button
-      style="margin-right: 10px;"
+      style="margin-right: 10px;color: white;"
+      (click)="backToMovies()"
     >
-      <a class="a_button" href="/movies">Back</a>
+      Back
     </button>
     </div>
 </div>
