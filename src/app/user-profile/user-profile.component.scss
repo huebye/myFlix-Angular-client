@@ -5,7 +5,6 @@
   width: 100%;
   height: 100%;
   background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-  background-size: 100%;
 }
 
 .profil {
@@ -14,6 +13,8 @@
   font-size: 18px;
   background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
   vertical-align: middle;
+  width: 100%;
+  height: auto;
 }
 
 
@@ -200,9 +201,58 @@ height: 130px;
 }
 
 
+@media only screen and (max-width: 400px) and (min-width: 100px) {
+  .profil_info {
+    font-size: 17px;
+    margin: 0 auto;
+    width: auto;
+  }
 
-@media only screen and (max-width: 400px) {
+  .profile_main {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+  .profil_staricon {
+    width: auto;
+  }
 
+  .profil_favorite {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    align-content: center;
+  }
+  .profil_staricon > img {
+    position: relative;
+  left: 31%;
+  }
+}
+
+
+@media only screen and (max-width: 705px) and (min-width: 400px) {
+  .profil_info {
+    align-self: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+    margin: 0 auto;
+  }
+
+  .profil_button > button {
+    background-color: white;
+    color: black;
+    min-width: 90px;
+    min-height: 90px;
+    border-radius: 50%;
+    border: solid 1px black;
+  }
+  .profil_favorite {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+    align-content: center;
+  }
 }
 
 @media only screen and (max-width: 1186px) {
