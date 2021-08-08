@@ -15,6 +15,10 @@ export class ProfileDeleteComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  /**
+   * removes account and navigates you back to the welcome page
+   */ 
   removeUserAccount(): void {
     this.fetchApiData.deleteUser().subscribe((resp: any) => {
   
@@ -24,7 +28,9 @@ export class ProfileDeleteComponent implements OnInit {
           window.location.reload();
         });
       }
-
+  /**
+   * allows user to cancel deletion of account 
+   */ 
       cancel(): void {
         this.router.navigate(['/user']).then(() => {
           window.location.reload();

@@ -22,6 +22,9 @@ export class UserProfileComponent implements OnInit {
     this.getMovies();
   }
 
+/**
+   * gets data of current user 
+   */  
   getUser(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -30,19 +33,25 @@ export class UserProfileComponent implements OnInit {
         return this.user;
       });
     }
-
+/**
+   * opens dialog to delete account 
+   */  
     openDeleteDialog(): void {
       this.dialog.open(ProfileDeleteComponent);
       console.log('hi')
     }
-
+/**
+   * loads all movies and runs filterFavorites()
+   */  
     getMovies(): void {
       this.fetchApiData.getAllMovies().subscribe((res: any) => {
         this.movies = res;
         this.filterFavorites();
       });
     }
-
+/**
+   * filters movies if they are a favorite movie
+   */  
     filterFavorites(): void {
       this.movies.forEach((movie: any) => {
         if (this.user.FavoriteMovies.includes(movie._id)) {
@@ -52,13 +61,17 @@ export class UserProfileComponent implements OnInit {
       console.log(this.favourite);
       return this.favourite;
     }
-    
+/**
+   * opens dialog to update user information
+   */  
     openUserUpdateDialog(): void {
       this.dialog.open(UpdateProfileComponent, {
         width: '380px'
       });
     }
-
+/**
+   * allows user to remove a favorite from the movie list 
+   */  
     removeFavorites(id: string): void {
       this.fetchApiData.removeFavorite(id).subscribe((resp: any) => {
         this.router.navigate(['/user']).then(() => {
@@ -66,7 +79,9 @@ export class UserProfileComponent implements OnInit {
         });
       });
    }
-
+/**
+   * allows user to go back to the movie view
+   */  
    backToMovies(): void {
      this.router.navigate(['/movies'])
    };

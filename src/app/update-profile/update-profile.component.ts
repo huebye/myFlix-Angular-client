@@ -10,6 +10,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./update-profile.component.scss']
 })
 export class UpdateProfileComponent implements OnInit {
+  /**
+   * defining the inputs of update profile form
+   */ 
   @Input() userDetails = { Name: '', Password: '', Email: '', Birthday: '' };
   user: any = {};
   constructor(
@@ -21,6 +24,9 @@ export class UpdateProfileComponent implements OnInit {
 ngOnInit(): void {
 }
 
+/**
+   * loads infos about current user
+   */ 
 getUser(): void {
   const user = localStorage.getItem('user');
   this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -30,7 +36,9 @@ getUser(): void {
     });
   }
 
-// This is the function responsible for sending the form inputs to the backend
+  /**
+   * This is the function responsible for sending the form inputs to the backend
+   */ 
 editUser(): void {
     this.fetchApiData.editUser(this.userDetails).subscribe((result) => {
       localStorage.setItem('user',this.userDetails.Name)

@@ -21,8 +21,10 @@ constructor(
 
 ngOnInit(): void {
 }
+ /**
+   * allows user to log in and opens movieView
+   */ 
 
-// This is the function responsible for sending the form inputs to the backend
 loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       localStorage.setItem('token', result.token);

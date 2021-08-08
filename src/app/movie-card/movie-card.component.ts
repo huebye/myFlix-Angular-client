@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DirectorDialogComponent } from '../director-dialog/director-dialog.component';
 import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
+
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -13,13 +14,25 @@ import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
 export class MovieCardComponent {
   movies: any[] = [];
   favoriteMovieIds: any[] = [];
+  /**
+   * 
+   * @param apiApi fetching data from an api
+   * @param snackBar angular material library showing messages for the user
+   * @param dialog angular material library open a dialog window
+   */
   constructor(public dialog: MatDialog, public fetchApiData: FetchApiDataService,public snackBar: MatSnackBar, public router: Router) { }
 
+/**
+   * loading movies and favorite movies on initiation of component
+   */  
 ngOnInit(): void {
   this.getMovies();
   this.favedMovies();
 }
 
+/**
+   * loading movies from api
+   */  
 getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -28,6 +41,9 @@ getMovies(): void {
     });
   }
 
+/**
+   * loading movies that are favorites of the current user
+   */  
   favedMovies(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.getUser(user).subscribe((resp: any) => {
@@ -35,7 +51,12 @@ getMovies(): void {
     });
   }
 
-
+/**
+   * opens director view displaying information
+   * @param Name Name of director
+   * @param Bio bio details of director
+   * @param Birth birthyear of director
+   */
   openDirectorDialog(name: string,bio: string,birth: string): void {
     this.dialog.open(DirectorDialogComponent, {
       data: {
@@ -47,7 +68,9 @@ getMovies(): void {
       width: 'auto'
     });
   }
-
+/**
+   * opens Genre Dialog displaying information
+   */  
   openGenreDialog(description: string, name: string): void {
     this.dialog.open(GenreDialogComponent, {
       data: {
@@ -59,10 +82,18 @@ getMovies(): void {
     });
   }
 
+/**
+   * filters faovirte movies id from all movies id 
+   * @returns boolean
+   */ 
   isFavoured(movieID: string): boolean {
     return this.favoriteMovieIds.includes(movieID);
   };
- 
+
+
+ /**
+   * allows user to favor movie and unfavor it 
+   */ 
   toggleFavouriteMovies(id: string): any {
     if (this.isFavoured(id)) {
       this.fetchApiData.removeFavorite(id).subscribe((resp: any) => {
@@ -82,6 +113,9 @@ getMovies(): void {
     return this.favoriteMovieIds.push(id);
   }
 
+  /**
+   * load user profile view
+   */ 
   goToUserView(): void {
     this.router.navigate(['/user']);
   }
